@@ -12,4 +12,4 @@ async function getAllTasks() {
     return response.data;
 }
 
-export { getAllTasks};
+export { api, getAllTasks};
