@@ -6,9 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "nodemon": "nodemon"
   },
   "dependencies": {
+    "axios": "^1.6.5",
     "next": "14.0.4",
     "nodemon": "^3.0.2",
     "react": "^18",

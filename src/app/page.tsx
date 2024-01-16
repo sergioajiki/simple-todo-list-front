@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main>
       <div>
-        Iniciando Todo list
+        Testando o Next.js 
       </div>
     </main>
   )
