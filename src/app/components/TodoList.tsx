@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Task from "../models/Task";
 import { getAllTasksFromApi, getHealthBack } from "../services/api";
+import TaskInfoCard from "./TaskInfoCard";
 
 export default function TodoList() {
 
@@ -32,15 +33,21 @@ export default function TodoList() {
     }
     featchTaskData();
   }, []);
-  
+
+  const taskInProgress = allTasks.filter(task => task.currentState === "INPROGRESS");
+  const taskDoneDate = allTasks.filter(task => task.currentState === "DONE");
   return (
     <>
       <p>{health}</p>
-      <ul>
-        {allTasks.map(task => (
-            <li key={task.id}>{task.taskName} - {task.description} - {task.taskCreationDate.toString()} - {task.priority} - {task.currentState} - {task.taskDoneDate?.toString()}</li> 
-        ))}
-      </ul>
+      <div>
+        <h4>Tasks To Do</h4>
+        <TaskInfoCard taskList={taskInProgress} />
+      </div>
+      <div>
+        <h4>Tasks Done</h4>
+        <TaskInfoCard taskList={taskDoneDate} />
+      </div>
+
     </>
   )
 }
