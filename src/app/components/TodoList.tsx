@@ -3,11 +3,14 @@ import { useEffect, useState } from "react";
 import Task from "../models/Task";
 import { getAllTasksFromApi, getHealthBack } from "../services/api";
 import TaskInfoCard from "./TaskInfoCard";
+import AddTaskCard from "./AddTaskCard";
 
 export default function TodoList() {
 
   const [health, setHealth] = useState<string | null>(null);
-  const [allTasks, setAllTasks] = useState<Task[]>([]);
+
+  const [allTasks, setAllTasks] = useState<Task[] | null>([]);
+
 
   useEffect(() => {
     async function featHealthData() {
@@ -32,13 +35,17 @@ export default function TodoList() {
       }
     }
     featchTaskData();
-  }, []);
+  }, [allTasks]);
 
-  const taskInProgress = allTasks.filter(task => task.currentState === "INPROGRESS");
-  const taskDoneDate = allTasks.filter(task => task.currentState === "DONE");
+  const taskInProgress = allTasks ? allTasks.filter(task => task.currentState === "INPROGRESS") : [];
+  const taskDoneDate = allTasks ? allTasks.filter(task => task.currentState === "DONE") : [];
   return (
     <>
       <p>{health}</p>
+
+      <div>
+        <AddTaskCard />
+      </div>
       <div>
         <h4>Tasks To Do</h4>
         <TaskInfoCard taskList={taskInProgress} />

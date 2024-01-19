@@ -3,7 +3,6 @@
 import { TaskList } from "../types/propsTask";
 
 export default function TaskInfoCard({ taskList }: TaskList) {
-
     return (
         <>
             {taskList.map(task => (

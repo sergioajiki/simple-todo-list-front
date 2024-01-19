@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { TaskPayload } from '../types/propsTask';
 
 const api = axios.create({
     baseURL: 'http://localhost:8080',
@@ -21,4 +22,10 @@ async function getHealthBack(): Promise<string> {
     return response.data;
 }
 
-export { getAllTasksFromApi, getHealthBack };
+async function createTask(taskPayload: TaskPayload) {
+    const response = await api.post('/tasks', taskPayload);
+        console.log(response.data);
+        return response.data;
+}
+
+export { getAllTasksFromApi, getHealthBack, createTask };
