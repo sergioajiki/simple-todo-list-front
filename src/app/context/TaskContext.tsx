@@ -37,7 +37,7 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             const tasks = tasksData.map((task: any) => new Task(
                 task.id,
                 task.taskName,
-                task.descrisption,
+                task.description,
                 task.taskCreationDate,
                 task.priority,
                 task.currentStatus,

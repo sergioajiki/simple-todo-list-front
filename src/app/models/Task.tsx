@@ -1,28 +1,28 @@
 class Task {
     id: number;
     taskName: string;
-    descrisption: string;
+    description: string;
     taskCreationDate: Date;
     priority: string;
-    currentStatus: string;
+    currentState: string;
     taskDoneDate?: Date;
 
     constructor(
         id: number,
         taskName: string, 
-        descrisption: string, 
+        description: string, 
         taskCreationDate: Date,
         priority: string, 
-        currentStatus: string,
+        currentState: string,
         taskDoneDate?: Date,
 
         ) {
         this.id = id;    
         this.taskName = taskName;
-        this.descrisption = descrisption;
+        this.description = description;
         this.priority = priority;
-        this.currentStatus = currentStatus;
         this.taskCreationDate = new Date();
+        this.currentState = currentState;
         this.taskDoneDate = taskDoneDate;
     }
 }
