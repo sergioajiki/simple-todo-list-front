@@ -1,15 +1,15 @@
-import Image from 'next/image'
-import styles from './page.module.css'
-import { getAllTasks } from './services/api';
+'use client';
+
+import TodoList from "./components/TodoList";
 
 export default function Home() {
-  // getAllTasks();
-  // console.log(getAllTasks());
+
   return (
     <main>
       <div>
-        Testando o Next.js 
+        Testando o Next.js1
       </div>
+      <TodoList />
     </main>
   )
 }

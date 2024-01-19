@@ -1,15 +1,16 @@
+'use client'
 import React, { ReactNode, createContext, useCallback, useContext, useState } from 'react';
 import TaskList from '../models/TaskList';
 import Task from '../models/Task';
 import { api } from '../services/api';
 
-interface TaskContextInterface {
+interface TaskContextProps {
     taskList: TaskList;
     addTask: (task: Task) => Promise<void>;
     fetchTasks: () => Promise<void>;
 }
 
-const TaskContext = createContext<TaskContextInterface | undefined>(undefined);
+const TaskContext = createContext<TaskContextProps | undefined>(undefined);
 
 export const TaskProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [taskList, setTaskList] = useState<TaskList>(new TaskList());
