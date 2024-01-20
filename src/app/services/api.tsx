@@ -24,8 +24,33 @@ async function getHealthBack(): Promise<string> {
 
 async function createTask(taskPayload: TaskPayload) {
     const response = await api.post('/tasks', taskPayload);
-        console.log(response.data);
-        return response.data;
+    // console.log(response.data);
+    return response.data;
 }
 
-export { getAllTasksFromApi, getHealthBack, createTask };
+async function updateTaskDoneFromApi(id: number) {
+    const response = await api.patch(`/tasks/updateTaskDone/${id}`);
+    // console.log(response.data);
+    return response.data;
+}
+
+async function updateTaskInProgressFromApi(id: number) {
+    const response = await api.patch(`/tasks/updateTaskInProgress/${id}`);
+    // console.log(response.data);
+    return response.data;
+}
+async function deleteTaskFromApi(id: number) {
+    const response = await api.delete(`/tasks/${id}`);
+    // console.log(response.data);
+    return response.data;
+}
+
+export {
+    getAllTasksFromApi,
+    updateTaskInProgressFromApi,
+    updateTaskDoneFromApi,
+    createTask,
+    deleteTaskFromApi,
+    getHealthBack
+
+};

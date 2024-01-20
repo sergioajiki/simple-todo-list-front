@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { TaskPayload } from "../types/propsTask";
 import { Priority } from "../types/propsTask";
-import { create } from "domain";
 import { createTask } from "../services/api";
 
 export default function AddTaskCard() {
@@ -50,7 +49,7 @@ export default function AddTaskCard() {
                         </select>
                     </label>
 
-                    <p>{taskName} - {description} - {priority}</p>
+                    <p>Só pra controle {taskName} - {description} - {priority}</p>
                 </div>
                 <button type="button" onClick={() => addTask(taskPaylod)}>Add Task</button>
             </form>

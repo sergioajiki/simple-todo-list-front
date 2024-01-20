@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Task from "../models/Task";
 import { getAllTasksFromApi, getHealthBack } from "../services/api";
 import TaskInfoCard from "./TaskInfoCard";
@@ -10,8 +10,9 @@ export default function TodoList() {
   const [health, setHealth] = useState<string | null>(null);
 
   const [allTasks, setAllTasks] = useState<Task[] | null>([]);
+  // const [tasksLoaded, setTasksLoaded] = useState<boolean>(false);
 
-
+  
   useEffect(() => {
     async function featHealthData() {
       try {
@@ -24,16 +25,17 @@ export default function TodoList() {
     featHealthData();
   }, []);
 
-  useEffect(() => {
-    async function featchTaskData() {
-      try {
-        const allTasks = await getAllTasksFromApi();
-        // console.log(allTasks);
-        setAllTasks(allTasks);
-      } catch (error) {
-        console.log("Erro ao obter todas as tarefas", error);
-      }
+  async function featchTaskData() {
+    try {
+      const tasks = await getAllTasksFromApi();
+      console.log(tasks);
+      setAllTasks(tasks);
+    } catch (error) {
+      console.log("Erro ao obter todas as tarefas", error);
     }
+  }
+
+  useEffect(() => {
     featchTaskData();
   }, [allTasks]);
 
