@@ -1,11 +1,14 @@
 'use client';
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { TaskPayload } from "../types/propsTask";
 import { Priority } from "../types/propsTask";
 import { createTask } from "../services/api";
+import { TaskContext } from "../context/TaskContextProvider"; // Import the TaskContext from the appropriate file
 
 export default function AddTaskCard() {
+
+    const { taskLoaded, setTaskLoaded } = useContext(TaskContext);
 
     const [taskName, setTaskName] = useState<string>("");
     const [description, setDescription] = useState<string>("");
@@ -19,6 +22,7 @@ export default function AddTaskCard() {
 
     async function addTask(taskPayload: TaskPayload) {
         const response = await createTask(taskPayload);
+        setTaskLoaded(false)
     }
     return (
         <>

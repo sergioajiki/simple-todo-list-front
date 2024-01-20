@@ -1,26 +1,38 @@
 'use client';
-
 import { TaskList } from "../types/propsTask";
 import { deleteTaskFromApi, updateTaskDoneFromApi, updateTaskInProgressFromApi } from "../services/api";
-import { useState } from "react";
-
+import { TaskContext } from "../context/TaskContextProvider";
+import { useContext } from "react";
 
 export default function TaskInfoCard({ taskList }: TaskList) {
 
+    const {
+        allTasks, 
+        setAllTasks, 
+        taskInProgress, 
+        setTaskInProgress, 
+        taskDone, 
+        setTaskDone, 
+        taskLoaded,
+        setTaskLoaded, 
+        featchTaskData
+     } = useContext(TaskContext);
+
     async function deleteTask(id: number) {
         const response = await deleteTaskFromApi(id);
+        setTaskLoaded(false);
         // console.log(response);
     }
 
     async function updateTaskDone(id: number) {
         const response = await updateTaskDoneFromApi(id);
-        // setTaskLoaded(false);
+        setTaskLoaded(false);
         // console.log(response);
     }
 
     async function updateTaskInProgress(id: number) {
         const response = await updateTaskInProgressFromApi(id);
-        // setTaskLoaded(false);
+        setTaskLoaded(false);
         // console.log(response);
     }
 
@@ -44,20 +56,12 @@ export default function TaskInfoCard({ taskList }: TaskList) {
                         ) : (
                             <button type="button" onClick={() => updateTaskDone(task.id)}>Done!!</button>
                         )
-
                     }
-
                     <button type="button" onClick={() => deleteTask(task.id)}>Delete Task</button>
                 </div>
-
             ))
             }
-
             <br />
         </>
     )
 }
-function setTaskLoaded(arg0: boolean) {
-    throw new Error("Function not implemented.");
-}
-
