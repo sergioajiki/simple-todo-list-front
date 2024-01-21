@@ -6,34 +6,21 @@ import TaskInfoCard from "./TaskInfoCard";
 import AddTaskCard from "./AddTaskCard";
 import { TaskList } from "../types/propsTask";
 import TaskContextProvider, { TaskContext } from "../context/TaskContextProvider";
+import "../styles/TodoList.css";
 
 export default function TodoList() {
 
-  const [health, setHealth] = useState<string | null>(null);
-
   const {
-     allTasks, 
-     setAllTasks, 
-     taskInProgress, 
-     setTaskInProgress, 
-     taskDone, 
-     setTaskDone, 
-     taskLoaded,
-     setTaskLoaded, 
-     featchTaskData
+    allTasks,
+    setAllTasks,
+    taskInProgress,
+    setTaskInProgress,
+    taskDone,
+    setTaskDone,
+    taskLoaded,
+    setTaskLoaded,
+    featchTaskData
   } = useContext(TaskContext);
-
-  // useEffect(() => {
-  //   async function featHealthData() {
-  //     try {
-  //       const healthData = await getHealthBack();
-  //       setHealth(healthData);
-  //     } catch (error) {
-  //       console.log("Erro ao obter Health", error);
-  //     }
-  //   }
-  //   featHealthData();
-  // }, []);
 
   async function deleteTask(id: number) {
     const response = await deleteTaskFromApi(id);
@@ -52,15 +39,10 @@ export default function TodoList() {
 
   return (
     <>
-      {/* <p>{health}</p> */}
-      <div>
+      <div className="todoList">
         <AddTaskCard />
-      </div>
-      <div>
         <h4>Tasks To Do</h4>
         <TaskInfoCard taskList={taskInProgress} />
-      </div>
-      <div>
         <h4>Tasks Done</h4>
         <TaskInfoCard taskList={taskDone} />
       </div>

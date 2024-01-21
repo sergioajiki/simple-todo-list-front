@@ -14,12 +14,12 @@ function TaskContextProvider({ children }: { children: React.ReactNode }) {
 
     const featchTaskData = useCallback(async () => {
         const tasks = await getAllTasksFromApi();
-        console.log(tasks);
         setAllTasks(tasks);
         const tInProgress: Task[] = tasks ? tasks.filter((task: Task) => task.currentState === "INPROGRESS") : [];
         setTaskInProgress(tInProgress);
         const tDone: Task[] = tasks ? tasks.filter((task: Task) => task.currentState === "DONE") : [];
         setTaskDone(tDone);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [taskDone, taskInProgress, allTasks])
 
     useEffect(() => {
@@ -28,11 +28,6 @@ function TaskContextProvider({ children }: { children: React.ReactNode }) {
             setTaskLoaded(true);
         }
     }, [taskLoaded, featchTaskData]);
-
-    console.log('allTasks', allTasks);
-    console.log('taskInProgress', taskInProgress);
-    console.log('taskDone', taskDone);
-    console.log('taskLoaded', taskLoaded);
 
     const values = {
         allTasks,

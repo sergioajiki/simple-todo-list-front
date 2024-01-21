@@ -46,12 +46,12 @@ export default function AddTaskCard() {
     }
     return (
         <>
-            <form>
+            <form className="formAddTask">
                 <div className="taskInputs">
                     <span className="lineInput1">
-                        <label htmlFor="taskName" className="label-taskName" >
+                        <label htmlFor="taskName" className="labelTaskName" >
                             <input
-                                className="input-taskName"
+                                className="inputTaskName"
                                 id="taskName"
                                 type="text"
                                 name="taskName"
@@ -62,9 +62,9 @@ export default function AddTaskCard() {
                             />
                             <span>Task</span>
                         </label>
-                        <label htmlFor="priority" className="label-priority">
+                        <label htmlFor="priority" className="labelPriority">
                             <select
-                                className="input-priority"
+                                className="inputPriority"
                                 id="priority"
                                 name="priority"
                                 onChange={({ target: { value } }) => setPriority(value as Priority)} >
@@ -75,9 +75,9 @@ export default function AddTaskCard() {
                             <span>Priority</span>
                         </label>
                     </span>
-                    <label htmlFor="description" className="label-description">
+                    <label htmlFor="description" className="labelDescription">
                         <input
-                            className="input-description"
+                            className="inputDescription"
                             type="text"
                             id="description"
                             name="description"
@@ -85,9 +85,10 @@ export default function AddTaskCard() {
                         />
                         <span>Description</span>
                     </label>
-                    <p>Só pra controle {taskName} - {description} - {priority}</p>
+                    {/* <p>Só pra controle {taskName} - {description} - {priority}</p> */}
                 </div>
                 <button
+                    className="buttonAddTask"
                     type="button"
                     onClick={() => addTask(taskPaylod)}
                 >Add Task</button>

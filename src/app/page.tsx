@@ -6,9 +6,7 @@ export default function Home() {
 
   return (
     <main>
-      <div>
-        <h1>Todo List</h1>
-      </div>
+      <h1>To Do List</h1>
       <TodoList />
     </main>
   )
