@@ -10,7 +10,6 @@ import "../styles/AddTaskCard.css";
 export default function AddTaskCard() {
 
     const { setTaskLoaded } = useContext(TaskContext) as { setTaskLoaded: React.Dispatch<React.SetStateAction<boolean>> };
-
     const [taskName, setTaskName] = useState<string>("");
     const [description, setDescription] = useState<string>("");
     const [priority, setPriority] = useState<Priority>("HIGH");
@@ -21,12 +20,25 @@ export default function AddTaskCard() {
         priority
     }
 
+    const resetForm = () => {
+        setTaskName("");
+        setPriority("HIGH");
+        setDescription("");   
+        const taskNameInput = document.getElementById("taskName") as HTMLInputElement;
+        const priorityInput = document.getElementById("priority") as HTMLSelectElement;
+        const descriptionInput = document.getElementById("description") as HTMLInputElement;
+    
+        if (taskNameInput && priorityInput && descriptionInput) {
+          taskNameInput.value = "";
+          priorityInput.value = "HIGH";
+          descriptionInput.value = "";
+        } 
+    };
+
     async function addTask(taskPayload: TaskPayload) {
         try {
             const response = await createTask(taskPayload);
-            setTaskName("");
-            setDescription("");
-            setPriority("HIGH");
+            resetForm();
             setTaskLoaded(false)
         } catch (error) {
             console.log("Erro ao adicionar a tarefa", error);
@@ -45,6 +57,7 @@ export default function AddTaskCard() {
                                 name="taskName"
                                 onChange={({ target: { value } }) => setTaskName(value)}
                                 placeholder=" "
+                                autoComplete="off"
                                 required
                             />
                             <span>Task</span>

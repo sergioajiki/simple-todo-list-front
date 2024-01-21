@@ -23,17 +23,17 @@ export default function TodoList() {
      featchTaskData
   } = useContext(TaskContext);
 
-  useEffect(() => {
-    async function featHealthData() {
-      try {
-        const healthData = await getHealthBack();
-        setHealth(healthData);
-      } catch (error) {
-        console.log("Erro ao obter Health", error);
-      }
-    }
-    featHealthData();
-  }, []);
+  // useEffect(() => {
+  //   async function featHealthData() {
+  //     try {
+  //       const healthData = await getHealthBack();
+  //       setHealth(healthData);
+  //     } catch (error) {
+  //       console.log("Erro ao obter Health", error);
+  //     }
+  //   }
+  //   featHealthData();
+  // }, []);
 
   async function deleteTask(id: number) {
     const response = await deleteTaskFromApi(id);
@@ -52,7 +52,7 @@ export default function TodoList() {
 
   return (
     <>
-      <p>{health}</p>
+      {/* <p>{health}</p> */}
       <div>
         <AddTaskCard />
       </div>
