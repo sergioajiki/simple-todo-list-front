@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main>
       <div>
-        Testando o Next.js1
+        <h1>Todo List</h1>
       </div>
       <TodoList />
     </main>

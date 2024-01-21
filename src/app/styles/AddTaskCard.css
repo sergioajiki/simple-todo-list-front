@@ -1,0 +1,82 @@
+.taskInputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.lineInput1 {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.label-taskName {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 15px;
+}
+
+.input-taskName+span {
+    background-color: white;
+    position: absolute;
+    top: -13px;
+    left: 8px;
+    z-index: 2;
+    width: 30px;
+    height: 1rem;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+}
+#taskName {
+    min-width: 475px;
+    padding: 2px;
+}
+
+.label-description {
+    position: relative;
+    z-index: 1;
+}
+
+.input-description+span {
+    background-color: white;
+    position: absolute;
+    top: -13px;
+    left: 8px;
+    z-index: 2;
+    width: 75px;
+    height: 1rem;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+}
+
+#description {
+    width: 100%;
+    padding: 2px;
+}
+
+.label-priority {
+    position: relative;
+    z-index: 1;
+}
+
+.input-priority+span {
+    background-color: white;
+    position: absolute;
+    top: -13px;
+    left: 8px;
+    z-index: 2;
+    width: px;
+    height: 1rem;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+}
+
+#priority {
+    text-align: right;
+    width: 140px;
+    padding: 2px;
+}
