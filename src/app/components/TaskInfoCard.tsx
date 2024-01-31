@@ -38,13 +38,13 @@ export default function TaskInfoCard({ taskList }: TaskList) {
     const getBackgroundColor = (priority: Priority) => {
         const taskStyles: TaskStyles = {
         "HIGH": {
-            backgroundColor :  "red"
+            backgroundColor :  "rgb(252, 75, 75)"
         },
        "MEDIUM" : {
-            backgroundColor: "orange"
+            backgroundColor: "rgb(252, 163, 90)"
         },
         "LOW" : {
-            backgroundColor: "yellow"
+            backgroundColor: "rgb(231, 245, 111)"
         }
             }
         return taskStyles[priority] ? taskStyles[priority].backgroundColor : "white" ;
@@ -56,8 +56,8 @@ export default function TaskInfoCard({ taskList }: TaskList) {
                     <span className="lineOne">
                         <span className="taskName">{task.taskName}</span>
                         <span className="cardR">
-                            <span className="cdatePriority">
-                                <span>{task.taskCreationDate.toString()}</span>
+                            <span className="cDate">
+                                {task.taskCreationDate.toString()}
                                 {/* <span>{task.priority} </span> */}
                             </span>
                             <span className="buttons">
@@ -82,13 +82,13 @@ export default function TaskInfoCard({ taskList }: TaskList) {
                             {/* <span>State: {task.currentState} </span> */}
                         </span>
                     </span>
-                    <span className="descDateDone">
+                    <span className="descDateDone"></span>
                         <span>{task.description}</span>
                         {
                             task.taskDoneDate && (
-                                <span>Done in: {task.taskDoneDate?.toString()} </span>
+                                <span className="dDate">Done in: {task.taskDoneDate?.toString()} </span>
                             )
-                        }</span>
+                        }
                 </div>
             ))
             }
