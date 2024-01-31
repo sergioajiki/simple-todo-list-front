@@ -1,5 +1,5 @@
 'use client';
-import { TaskList } from "../types/propsTask";
+import { Priority, TaskList, TaskStyles } from "../types/propsTask";
 import { deleteTaskFromApi, updateTaskDoneFromApi, updateTaskInProgressFromApi } from "../services/api";
 import { TaskContext } from "../context/TaskContextProvider";
 import { useContext } from "react";
@@ -35,17 +35,30 @@ export default function TaskInfoCard({ taskList }: TaskList) {
         setTaskLoaded(false);
         // console.log(response);
     }
-
+    const getBackgroundColor = (priority: Priority) => {
+        const taskStyles: TaskStyles = {
+        "HIGH": {
+            backgroundColor :  "red"
+        },
+       "MEDIUM" : {
+            backgroundColor: "orange"
+        },
+        "LOW" : {
+            backgroundColor: "yellow"
+        }
+            }
+        return taskStyles[priority] ? taskStyles[priority].backgroundColor : "white" ;
+     }
     return (
         <>
             {taskList.map(task => (
-                <div key={task.id} className="card">
+                <div key={task.id} className="card" style={{ backgroundColor: getBackgroundColor(task.priority as Priority)}}>
                     <span className="lineOne">
-                        <span className="taskName"> {task.taskName}</span>
+                        <span className="taskName">{task.taskName}</span>
                         <span className="cardR">
                             <span className="cdatePriority">
                                 <span>{task.taskCreationDate.toString()}</span>
-                                <span>{task.priority} </span>
+                                {/* <span>{task.priority} </span> */}
                             </span>
                             <span className="buttons">
                                 {

@@ -1,5 +1,11 @@
 export type Priority = "HIGH" | "MEDIUM" | "LOW";
 
+export type TaskStyles = {
+    "HIGH": { backgroundColor: string },
+    "MEDIUM": { backgroundColor: string },
+    "LOW": { backgroundColor: string }
+}
+
 export type Task = {
     id: number;
     taskName: string;

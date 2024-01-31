@@ -1,15 +1,14 @@
 .card {
+    align-items: left;
     background-color: rgb(221, 234, 250)  ;
     border-radius: 10px;
     display: flex;
+    height: 75px;
     flex-direction: column;
-    align-items: left;
-    justify-content: flex-start;
     font-size: 1rem;
+    justify-content: flex-start;
     margin-bottom: 5px;
-    height: 40px;
     padding: 5px;
-    font-size: 0.9rem;
     width: 100%;
 }
 
@@ -20,34 +19,33 @@
 }
 
 .lineOne {
+    align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
 }
 
 .cardR {
-    margin-right: 5px;
+    align-items: center;
     display: flex;
-    width: 210px;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    margin-right: 5px;
+    width: 190px;
 }
 
 .cdatePriority {
-    margin-right:10px;
-    display: flex;
-    width: 145px;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
+    display: flex;
+    font-size: 0.8rem;
+    flex-direction: row;
+    margin-right:10px;
+    justify-content: space-between;
+    width: 130px;
 }
 
-.descDateDone {
-    display: flex;
-    justify-content: space-between;
-    margin-right: 5px;
+.buttons {
+    width: 52px;
 }
 
 .buttonInCard {
@@ -56,4 +54,10 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
+}
+
+.descDateDone {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 5px;
 }

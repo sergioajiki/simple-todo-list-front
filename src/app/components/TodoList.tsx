@@ -41,10 +41,20 @@ export default function TodoList() {
     <>
       <div className="todoList">
         <AddTaskCard />
-        <h4>Tasks To Do</h4>
-        <TaskInfoCard taskList={taskInProgress} />
-        <h4>Tasks Done</h4>
-        <TaskInfoCard taskList={taskDone} />
+        <div className="tasks">
+
+          <span className="inProgress">
+            <h4>Tasks To Do</h4>
+            <TaskInfoCard taskList={taskInProgress} />
+          </span>
+
+          <span className="done">
+            <h4>Tasks Done</h4>
+            <TaskInfoCard taskList={taskDone} />
+          </span>
+
+        </div>
+
       </div>
     </>
   )
