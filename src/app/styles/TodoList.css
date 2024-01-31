@@ -1,9 +1,9 @@
 .todoList {
-    width: 750px;
-    height: 100%;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    height: 100%;
+    width: 750px;
 }
 
 .tasks {

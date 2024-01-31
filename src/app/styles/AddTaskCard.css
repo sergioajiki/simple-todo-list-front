@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 100%;
     padding: 10px;
+    width: 100%;
 }
 
 .taskInputs {
@@ -13,37 +13,36 @@
 }
 
 .lineInput1 {
-    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 100%;
 }
 
 .labelTaskName {
-    position: relative;
     margin-bottom: 15px;
+    position: relative;
 }
 
 .inputTaskName+span {
     background-color: white;
     box-sizing: border-box;
+    font-size: 0.8rem;
+    height: 1rem;
+    left: 8px;
+    margin-bottom: 10px;
     position: absolute;
     top: -8px;
-    left: 8px;
     width: 30px;
-    height: 1rem;
-    /* padding: 5px; */
-    margin-bottom: 10px;
-    font-size: 0.8rem;
 }
 
 #taskName {
     box-sizing: border-box;
-    width: 100%;
-    min-width: 475px;
     height: 2rem;
+    min-width: 475px;
     padding: 3px;
     text-align: bottom;
+    width: 100%;
 }
 
 .labelDescription {
@@ -53,22 +52,22 @@
 
 .inputDescription+span {
     background-color: white;
+    font-size: 0.70rem;
+    height: 1rem;
+    left: 8px;
+    margin-bottom: 10px;
     position: absolute;
     top: -9px;
-    left: 8px;
     width: 75px;
-    height: 1rem;
-    margin-bottom: 10px;
-    font-size: 0.70rem;
 }
 
 #description {
     box-sizing: border-box;
-    position: relative;
-    min-width: 475px;
-    width: 100%;
-    padding: 3px;
     height: 2rem;
+    min-width: 475px;
+    padding: 3px;
+    position: relative;
+    width: 100%;
 }
 
 .labelPriority {
@@ -77,67 +76,66 @@
 
 .inputPriority+span {
     background-color: white;
+    font-size: 0.8rem;
+    height: 1rem;
+    left: 8px;
+    margin-bottom: 10px;
+    padding: 5px;
     position: absolute;
     top: -13px;
-    left: 8px;
-    z-index: 2;
     width: 40px;
-    height: 1rem;
-    padding: 5px;
-    margin-bottom: 10px;
-    font-size: 0.8rem;
 }
 
 #priority {
     box-sizing: border-box;
+    height: 30px;
+    padding: 2px;
     text-align: right;
     width: 136px;
-    padding: 2px;
-    height: 30px;
 }
 
 .buttonAddTask {
     align-self: center;
-    width: 200px;
+    background-color: rgb(4, 139, 38);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 7px 5px 5px black;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
     height: 30px;
     margin-top: 10px;
     margin-bottom: 20px;
-    border-radius: 10px;
-    border: none;
-    background-color: rgb(4, 139, 38);
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
     transition-duration: 0.4s;
-    box-shadow: 7px 5px 5px black;
+    width: 200px;
 }
 
 .buttonAddTask:hover {
     align-self: center;
-    width: 200px;
+    background-color: rgb(3, 85, 23);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;    
+    font-weight: bold;
     height: 30px;
     margin-top: 10px;
     margin-bottom: 20px;
-    border-radius: 10px;
-    border: none;
-    background-color: rgb(3, 85, 23);
-    color: white;
-    font-weight: bold;
-    cursor: pointer;    
+    width: 200px;
 }
 
 .buttonAddTask:active {
     align-self: center;
-    width: 200px;
+    background-color: rgb(165, 74, 22);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 5px 2px 5px black;
+    cursor: pointer;    
+    color: white;
+    font-weight: bold;
     height: 30px;
     margin-top: 10px;
     margin-bottom: 20px;
-    border-radius: 10px;
-    border: none;
-    background-color: rgb(165, 74, 22);
-    color: white;
-    font-weight: bold;
-    cursor: pointer;    
     transition-duration: 0.4s;
-    box-shadow: 5px 2px 5px black;
+    width: 200px;
 }
