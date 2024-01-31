@@ -44,6 +44,7 @@ export default function AddTaskCard() {
             console.log("Erro ao adicionar a tarefa", error);
         }
     }
+    
     return (
         <>
             <form className="formAddTask">

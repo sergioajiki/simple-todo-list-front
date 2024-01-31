@@ -52,5 +52,4 @@ export {
     createTask,
     deleteTaskFromApi,
     getHealthBack
-
 };

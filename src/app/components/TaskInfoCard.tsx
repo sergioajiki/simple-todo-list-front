@@ -6,59 +6,47 @@ import { useContext } from "react";
 import "../styles/TaskInfoCard.css";
 
 export default function TaskInfoCard({ taskList }: TaskList) {
-    const {
-        allTasks,
-        setAllTasks,
-        taskInProgress,
-        setTaskInProgress,
-        taskDone,
-        setTaskDone,
-        taskLoaded,
-        setTaskLoaded,
-        // featchTaskData
-    } = useContext(TaskContext);
+    const { setTaskLoaded } = useContext(TaskContext) as { setTaskLoaded: React.Dispatch<React.SetStateAction<boolean>> };
 
     async function deleteTask(id: number) {
         const response = await deleteTaskFromApi(id);
         setTaskLoaded(false);
-        // console.log(response);
     }
 
     async function updateTaskDone(id: number) {
         const response = await updateTaskDoneFromApi(id);
         setTaskLoaded(false);
-        // console.log(response);
     }
 
     async function updateTaskInProgress(id: number) {
         const response = await updateTaskInProgressFromApi(id);
         setTaskLoaded(false);
-        // console.log(response);
     }
+    
     const getBackgroundColor = (priority: Priority) => {
         const taskStyles: TaskStyles = {
-        "HIGH": {
-            backgroundColor :  "rgb(252, 75, 75)"
-        },
-       "MEDIUM" : {
-            backgroundColor: "rgb(252, 163, 90)"
-        },
-        "LOW" : {
-            backgroundColor: "rgb(231, 245, 111)"
-        }
+            "HIGH": {
+                backgroundColor: "rgb(252, 75, 75)"
+            },
+            "MEDIUM": {
+                backgroundColor: "rgb(252, 163, 90)"
+            },
+            "LOW": {
+                backgroundColor: "rgb(231, 245, 111)"
             }
-        return taskStyles[priority] ? taskStyles[priority].backgroundColor : "white" ;
-     }
+        }
+        return taskStyles[priority] ? taskStyles[priority].backgroundColor : "white";
+    }
+
     return (
         <>
             {taskList.map(task => (
-                <div key={task.id} className="card" style={{ backgroundColor: getBackgroundColor(task.priority as Priority)}}>
+                <div key={task.id} className="card" style={{ backgroundColor: getBackgroundColor(task.priority as Priority) }}>
                     <span className="lineOne">
                         <span className="taskName">{task.taskName}</span>
                         <span className="cardR">
                             <span className="cDate">
                                 {task.taskCreationDate.toString()}
-                                {/* <span>{task.priority} </span> */}
                             </span>
                             <span className="buttons">
                                 {
@@ -79,16 +67,15 @@ export default function TaskInfoCard({ taskList }: TaskList) {
                                     <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
                                 </svg></button>
                             </span>
-                            {/* <span>State: {task.currentState} </span> */}
                         </span>
                     </span>
                     <span className="descDateDone"></span>
-                        <span>{task.description}</span>
-                        {
-                            task.taskDoneDate && (
-                                <span className="dDate">Done in: {task.taskDoneDate?.toString()} </span>
-                            )
-                        }
+                    <span>{task.description}</span>
+                    {
+                        task.taskDoneDate && (
+                            <span className="dDate">Done in: {task.taskDoneDate?.toString()} </span>
+                        )
+                    }
                 </div>
             ))
             }
