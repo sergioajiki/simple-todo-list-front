@@ -1,0 +1,22 @@
+.todoList {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 750px;
+}
+
+.tasks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 98%;
+}
+
+.inProgress {
+    width: 46%;
+}
+
+.done {
+    width: 46%;
+}
